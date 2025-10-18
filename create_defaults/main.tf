@@ -8,8 +8,9 @@ terraform {
 }
 
 locals {
-  terraform_state_s3_bucket = "${var.env}-state-s3-bucket-for-team-bfs"
-  terraform_lock_dynamodb_table = "${var.env}-lock-dynamodb-table-for-team-bfs"
+  bucket_suffix = substr(md5(timestamp()), 0, 8) # 8-char random string
+  terraform_state_s3_bucket = "${var.env}-state-s3-bucket-${local.bucket_suffix}"
+  terraform_lock_dynamodb_table = "${var.env}-lock-dynamodb-table-${local.bucket_suffix}"
 }
 
 provider "aws" {

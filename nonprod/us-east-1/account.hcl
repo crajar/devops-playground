@@ -1,4 +1,4 @@
 locals {
-  aws_account_id = "851725450272"
+  aws_account_id = "992382425379"
   account_type   = "nonprod"
 }

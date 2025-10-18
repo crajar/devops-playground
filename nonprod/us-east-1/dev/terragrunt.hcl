@@ -8,8 +8,8 @@ locals {
   account_type = local.account_vars.locals.account_type
   aws_region = local.region_vars.locals.aws_region
   aws_region_cd = local.region_vars.locals.aws_region_cd
-  terraform_state_s3_bucket = "nonprod-state-s3-bucket-for-team-bfs"
-  terraform_lock_dynamodb_table = "nonprod-lock-dynamodb-table-for-team-bfs"
+  terraform_state_s3_bucket = "nonprod-state-s3-bucket-for-team-bfs-1"
+  terraform_lock_dynamodb_table = "nonprod-lock-dynamodb-table-for-team-bfs-1"
 }
 
 remote_state {

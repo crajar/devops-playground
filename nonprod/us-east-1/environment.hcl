@@ -1,6 +1,6 @@
 locals {
   environment = "dev"
-  vpc_id = "vpc-0e5ea178140b270a4"
-  subnets_private = ["subnet-0228303304421f112"]
-  subnets_public = ["subnet-0fed7a40191745d78"]
+  vpc_id = "vpc-0c88dc8d409fe9856"
+  subnets_private = ["subnet-08ab9c430798082ea"]
+  subnets_public = ["subnet-08b343d20060179b5"]
 }
