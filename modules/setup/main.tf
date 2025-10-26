@@ -25,7 +25,7 @@ locals {
 }
 
 module "ecs" {
-  source = "..//blueprint-ecs/terraform"
+  source = "../../blueprint-ecs/terraform"
   service_name = local.api_container_name
   aws_region = var.aws_region
   aws_region_cd = var.aws_region_cd
@@ -76,4 +76,8 @@ module "ecs" {
       "secrets": []
     }
   ]
+}
+
+output "tcd" {
+  value = module.ecs.tcd
 }

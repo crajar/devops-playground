@@ -1,5 +1,5 @@
 module "ecs-service" {
-  source = "../infra-modules/compute/ecs/ecs-service"
+  source = "../../infra-modules/compute/ecs/ecs-service"
   advanced_container_definition = (var.advanced_container_definition != null
           ? var.advanced_container_definition : var.advanced_container_definition_file_path != null
           ? jsondecode(file(var.advanced_container_definition_file_path)) : null)
@@ -15,4 +15,8 @@ module "ecs-service" {
   resource_slug = var.resource_slug
   service_name = var.service_name
   secrets = var.secrets
+}
+
+output "tcd"{
+  value = module.ecs-service.tcd
 }
