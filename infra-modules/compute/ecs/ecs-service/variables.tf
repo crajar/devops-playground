@@ -1,6 +1,6 @@
-variable "enable_datadog_agent" {}
-variable "launch_type" {}
-variable "advanced_container_definition" {}
+variable "enable_datadog_agent" { type = bool}
+variable "launch_type" { type = string}
+variable "advanced_container_definition" { type = any}
 variable "containers" {
   type = list(object({
     name = string
@@ -13,13 +13,12 @@ variable "containers" {
   default = null
 }
 
-variable "cloudwatch_log_group" {}
-variable "name_prefix" {}
-variable "environment" {}
-variable "aws_region_cd" {}
-variable "service_name" {}
-variable "resource_slug" {}
+variable "cloudwatch_log_group" { type = string}
+variable "name_prefix" { type = string}
+variable "environment" { type = string}
+variable "service_name" { type = string}
 variable "cloudwatch_logs_aws_region" {}
-variable "cloudwatch_logs_stream_prefix" {}
-variable "aws_region" {}
-variable "secrets" {}
+variable "resource_slug" { type = string}
+variable "cloudwatch_logs_stream_prefix" { type = string}
+variable "aws_region" { type = string}
+variable "secrets" { type = map(any)}

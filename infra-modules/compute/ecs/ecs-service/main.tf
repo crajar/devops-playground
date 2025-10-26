@@ -3,10 +3,6 @@ module "ecs_service" {
   ecs_task_container_definitions = templatefile("${path.module}/containers/container-definition.json", local.ecs_task_container_definition_vars)
 }
 
-output "tcd" {
-  value = module.ecs_service.tcd
-}
-
 module "cloudwatch_logs" {
   source = "../../../cloudwatch_log_group"
   count = var.cloudwatch_log_group == null ? 1 : 0

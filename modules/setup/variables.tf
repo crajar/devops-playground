@@ -1,18 +1,18 @@
-variable "name_prefix" {}
-variable "environment" {}
-variable "aws_region" {}
-variable "aws_region_cd" {}
-variable "db_host" {}
-variable "db_port" {}
-variable "db_secret_arn" {}
-variable "allowed_origins" {}
-variable "core_datadog_agent_host" {}
-variable "core_datadog_version" {}
-variable "core_datadog_trace_enabled" {}
-variable "core_datadog_runtime_metrics_enabled" {}
-variable "core_datadog_logs_injection_enabled" {}
-variable "core_datadog_profiling_enabled" {}
-variable "core_datadog_trace_sample_rate" {}
-variable "image_name" {}
-variable "image_tag" {}
-variable "enable_datadog_agent" {}
+variable "name_prefix" { type = string}
+variable "environment" { type = string}
+variable "aws_region" { type = string}
+variable "aws_region_cd" { type = string}
+variable "db_host" { type = string}
+variable "db_port" { type = string}
+variable "db_secret_arn" { type = string}
+variable "allowed_origins" { type = string}
+variable "core_datadog_agent_host" { type = string}
+variable "core_datadog_version" { type = string}
+variable "core_datadog_trace_enabled" { type = string}
+variable "core_datadog_runtime_metrics_enabled" { type = string}
+variable "core_datadog_logs_injection_enabled" { type = string}
+variable "core_datadog_profiling_enabled" { type = string}
+variable "core_datadog_trace_sample_rate" { type = string}
+variable "image_name" { type = string}
+variable "image_tag" { type = string}
+variable "enable_datadog_agent" { type = bool}

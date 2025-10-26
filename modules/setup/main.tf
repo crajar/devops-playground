@@ -37,18 +37,18 @@ module "ecs" {
   launch_type = "FARGATE"
   name_prefix = var.name_prefix
   resource_slug = "spoke"
-  secrets = []
+  secrets = {}
   advanced_container_definition = [
     {
       "name": local.api_container_name,
       "image": "${var.image_name}:${var.image_tag}"
-      "cpu": 2048,
-      "memory": 4096,
+      "cpu": 256,
+      "memory": 512,
       "essential": true,
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "analog-group": local.cloudwatch_log_group,
+          "awslogs-group": local.cloudwatch_log_group,
           "awslogs-region": var.aws_region,
           "awslogs-stream-prefix": local.cloudwatch_logs_stream_prefix
         }
@@ -60,8 +60,8 @@ module "ecs" {
         "appProtocol": "http2"
       }],
       "environment": [for k, v in local.environment_variables: {
-        "name": k,
-        "value": k
+        "name" : k,
+        "value" : v
       }],
       "healthCheck": {
         "command": [
@@ -76,8 +76,4 @@ module "ecs" {
       "secrets": []
     }
   ]
-}
-
-output "tcd" {
-  value = module.ecs.tcd
 }
